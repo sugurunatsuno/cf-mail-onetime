@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg border border-transparent px-3 text-sm font-medium leading-5 whitespace-nowrap transition-colors duration-150;
+        @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 active:bg-blue-800;
+    }
+
+    .btn-secondary {
+        @apply border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50 active:bg-gray-100;
+    }
+
+    .btn-danger {
+        @apply border-red-200 bg-red-50 text-red-600 hover:border-red-300 hover:bg-red-100 active:bg-red-200 focus-visible:ring-red-500;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent text-gray-500 hover:bg-gray-100 hover:text-gray-800 active:bg-gray-200;
+    }
+
+    .btn-sm {
+        @apply h-8 gap-1.5 px-2.5 text-xs;
+    }
+
+    .btn-icon {
+        @apply w-9 px-0;
+    }
+
+    .btn-icon.btn-sm {
+        @apply w-8 px-0;
+    }
+
+    .btn > i {
+        @apply text-lg leading-none;
+    }
+
+    .toggle {
+        @apply relative h-6 w-12 shrink-0 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+    }
+
+    .toggle-thumb {
+        @apply absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition-transform;
+    }
+}
+
+html, body, #app {
+    height: 100%;
+}
+
+/* Custom scrollbar for better look */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Ferris CSS */
+.ferris-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    z-index: 40;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.ferris-container:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.ferris-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: float 3s infinite ease-in-out;
+    filter: drop-shadow(0 2px 5px rgba(247, 76, 0, 0.3));
+}
+
+/* Optional cute wiggle on click or hover state */
+.ferris-container:active .ferris-img {
+    transform: scale(0.95);
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: #fff;
+    border: 2px solid #F74C00;
+    border-radius: 10px;
+    padding: 8px;
+    width: 180px;
+    font-size: 12px;
+    color: #333;
+    box-shadow: 2px 2px 0 rgba(247, 76, 0, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    line-height: 1.4;
+}
+
+.speech-bubble.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.speech-bubble::after,
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    /* Aligned to center of 50px crab */
+    border-style: solid;
+}
+
+.speech-bubble::after {
+    border-width: 10px 10px 0;
+    border-color: #F74C00 transparent transparent transparent;
+}
+
+.speech-bubble::before {
+    bottom: -7px;
+    border-width: 8px 8px 0;
+    border-color: #fff transparent transparent transparent;
+    z-index: 1;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "cf-mail-onetime",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit && vue-tsc --noEmit -p frontend/tsconfig.json",
+    "build": "vue-tsc --noEmit -p frontend/tsconfig.json && vite build",
+    "test": "playwright test",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@phosphor-icons/web": "^2.1.2",
+    "hono": "^4.10.8",
+    "vue": "^3.5.42"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251211.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "autoprefixer": "^10.5.5",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11",
+    "wrangler": "^4.53.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
